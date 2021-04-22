@@ -16,7 +16,8 @@ npm install
 3. Create the CDK stack
 
 ```bash
-npx cdk deploy
+npx cdk deploy \
+  --outputs-file ./cdk-outputs.json
 ```
 
 4. Open the AWS Console and the stack should be created in your default region
