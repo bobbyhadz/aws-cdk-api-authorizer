@@ -57,7 +57,7 @@ export class CdkStarterStack extends cdk.Stack {
     // 👇 create the Authorizer
     const authorizer = new apiGatewayAuthorizers.HttpUserPoolAuthorizer({
       userPool,
-      userPoolClient,
+      userPoolClients: [userPoolClient],
       identitySource: ['$request.header.Authorization'],
     });
 
