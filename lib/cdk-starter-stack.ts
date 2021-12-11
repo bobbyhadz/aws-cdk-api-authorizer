@@ -55,17 +55,21 @@ export class CdkStarterStack extends cdk.Stack {
     });
 
     // 👇 create the Authorizer
-    const authorizer = new apiGatewayAuthorizers.HttpUserPoolAuthorizer({
+    const authorizer = new apiGatewayAuthorizers.HttpUserPoolAuthorizer(
+      'user-pool-authorizer',
       userPool,
-      userPoolClients: [userPoolClient],
-      identitySource: ['$request.header.Authorization'],
-    });
+      {
+        userPoolClients: [userPoolClient],
+        identitySource: ['$request.header.Authorization'],
+      },
+    );
 
     // 👇 set the Authorizer on the Route
     httpApi.addRoutes({
-      integration: new apiGatewayIntegrations.LambdaProxyIntegration({
-        handler: lambdaFunction,
-      }),
+      integration: new apiGatewayIntegrations.HttpLambdaIntegration(
+        'protected-fn-integration',
+        lambdaFunction,
+      ),
       path: '/protected',
       authorizer,
     });
