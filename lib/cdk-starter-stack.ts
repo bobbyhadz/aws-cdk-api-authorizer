@@ -1,10 +1,10 @@
-import * as apiGateway from '@aws-cdk/aws-apigatewayv2';
-import * as apiGatewayAuthorizers from '@aws-cdk/aws-apigatewayv2-authorizers';
-import * as apiGatewayIntegrations from '@aws-cdk/aws-apigatewayv2-integrations';
-import * as cognito from '@aws-cdk/aws-cognito';
-import * as lambda from '@aws-cdk/aws-lambda';
-import {NodejsFunction} from '@aws-cdk/aws-lambda-nodejs';
-import * as cdk from '@aws-cdk/core';
+import * as apiGateway from '@aws-cdk/aws-apigatewayv2-alpha';
+import * as apiGatewayAuthorizers from '@aws-cdk/aws-apigatewayv2-authorizers-alpha';
+import * as apiGatewayIntegrations from '@aws-cdk/aws-apigatewayv2-integrations-alpha';
+import * as cognito from 'aws-cdk-lib/aws-cognito';
+import * as lambda from 'aws-cdk-lib/aws-lambda';
+import {NodejsFunction} from 'aws-cdk-lib/aws-lambda-nodejs';
+import * as cdk from 'aws-cdk-lib';
 import * as path from 'path';
 
 export class CdkStarterStack extends cdk.Stack {
