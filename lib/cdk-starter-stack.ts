@@ -44,7 +44,7 @@ export class CdkStarterStack extends cdk.Stack {
 
     // 👇 create the lambda that sits behind the authorizer
     const lambdaFunction = new NodejsFunction(this, 'my-function', {
-      runtime: lambda.Runtime.NODEJS_14_X,
+      runtime: lambda.Runtime.NODEJS_16_X,
       handler: 'main',
       entry: path.join(__dirname, `/../src/protected-function/index.ts`),
     });
