@@ -1,6 +1,6 @@
-import * as apiGateway from '@aws-cdk/aws-apigatewayv2-alpha';
-import * as apiGatewayAuthorizers from '@aws-cdk/aws-apigatewayv2-authorizers-alpha';
-import * as apiGatewayIntegrations from '@aws-cdk/aws-apigatewayv2-integrations-alpha';
+import * as apiGateway from 'aws-cdk-lib/aws-apigatewayv2';
+import * as apiGatewayAuthorizers from 'aws-cdk-lib/aws-apigatewayv2-authorizers';
+import * as apiGatewayIntegrations from 'aws-cdk-lib/aws-apigatewayv2-integrations';
 import * as cognito from 'aws-cdk-lib/aws-cognito';
 import * as lambda from 'aws-cdk-lib/aws-lambda';
 import {NodejsFunction} from 'aws-cdk-lib/aws-lambda-nodejs';
@@ -44,7 +44,7 @@ export class CdkStarterStack extends cdk.Stack {
 
     // 👇 create the lambda that sits behind the authorizer
     const lambdaFunction = new NodejsFunction(this, 'my-function', {
-      runtime: lambda.Runtime.NODEJS_16_X,
+      runtime: lambda.Runtime.NODEJS_18_X,
       handler: 'main',
       entry: path.join(__dirname, `/../src/protected-function/index.ts`),
     });
